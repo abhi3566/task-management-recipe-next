@@ -172,8 +172,8 @@ This visual system helps users quickly identify task attributes.
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/yourusername/task-management.git
-cd task-management
+git clone https://github.com/abhi3566/task-management-recipe-next
+cd task-management-recipe-next
 ```
 
 2. Install dependencies:
