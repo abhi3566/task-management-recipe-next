@@ -129,8 +129,7 @@ export function TaskFilter() {
             <DropdownMenuSeparator />
             
             <div className="p-2">
-              <Label className="text-xs text-muted-foreground mb-1 block">Status</Label>
-              <div className="grid grid-cols-3 gap-1">
+              <Label className="text-xs text-muted-foreground mb-1 block">Status</Label>              <div className="grid grid-cols-2 gap-1">
                 <Button
                   variant="outline"
                   size="sm"
@@ -158,7 +157,7 @@ export function TaskFilter() {
                 <Button
                   variant="outline"
                   size="sm"
-                  className={`${filter.status === 'Done' ? statusColor['Done'] : 'bg-transparent'} text-xs h-8 justify-start col-span-3`}
+                  className={`${filter.status === 'Done' ? statusColor['Done'] : 'bg-transparent'} text-xs h-8 justify-start`}
                   onClick={() => handleFilterChange("status", "Done")}
                 >
                   Done

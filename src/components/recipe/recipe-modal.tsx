@@ -10,12 +10,15 @@ import {
   DialogTitle,
   DialogClose,
 } from "@/components/ui/dialog";
+import { Heart } from "lucide-react";
 
 interface RecipeModalProps {
   meal: Meal;
   open: boolean;
   onClose: () => void;
   ingredients?: IngredientPair[];
+  isFavorite?: boolean;
+  onToggleFavorite?: () => void;
 }
 
 export function RecipeModal({
@@ -23,6 +26,8 @@ export function RecipeModal({
   open,
   onClose,
   ingredients,
+  isFavorite,
+  onToggleFavorite,
 }: RecipeModalProps) {
   const combinedIngredients = ingredients || combineIngredients(meal);
 
@@ -50,9 +55,17 @@ export function RecipeModal({
                   className="mt-4 inline-block w-full"
                 >
                   <Button className="w-full bg-red-600 hover:bg-red-700">
-                    Watch on YouTube
-                  </Button>
+                    Watch on YouTube                  </Button>
                 </a>
+              )}
+              {onToggleFavorite && (
+                <Button 
+                  onClick={onToggleFavorite} 
+                  className={`mt-2 w-full ${isFavorite ? 'bg-pink-600 hover:bg-pink-700' : 'bg-slate-600 hover:bg-slate-700'}`}
+                >
+                  <Heart className={`mr-2 h-4 w-4 ${isFavorite ? 'fill-current' : ''}`} />
+                  {isFavorite ? 'Remove from Favorites' : 'Add to Favorites'}
+                </Button>
               )}
             </div>
             <div className="md:col-span-2 mt-6 md:mt-0">
