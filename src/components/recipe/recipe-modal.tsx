@@ -1,9 +1,7 @@
 "use client";
 
-import { useEffect, useRef } from "react";
 import { Meal, IngredientPair } from "@/types/recipe";
 import { combineIngredients } from "@/lib/api/recipe-api";
-import { X, Heart } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   Dialog,
@@ -18,8 +16,6 @@ interface RecipeModalProps {
   open: boolean;
   onClose: () => void;
   ingredients?: IngredientPair[];
-  isFavorite?: boolean;
-  onToggleFavorite?: () => void;
 }
 
 export function RecipeModal({
@@ -27,13 +23,12 @@ export function RecipeModal({
   open,
   onClose,
   ingredients,
-  isFavorite,
-  onToggleFavorite,
 }: RecipeModalProps) {
   const combinedIngredients = ingredients || combineIngredients(meal);
 
   return (
-    <Dialog open={open} onOpenChange={(isOpen) => !isOpen && onClose()}>      <DialogContent className="max-w-3xl max-h-[90vh] overflow-y-auto" aria-describedby="recipe-details">
+    <Dialog open={open} onOpenChange={(isOpen) => !isOpen && onClose()}>
+      <DialogContent className="max-w-3xl max-h-[90vh] overflow-y-auto" aria-describedby="recipe-details">
         <DialogHeader>
           <DialogTitle>{meal.strMeal}</DialogTitle>
           <p id="recipe-details" className="text-sm text-muted-foreground sr-only">Recipe details for {meal.strMeal}</p>

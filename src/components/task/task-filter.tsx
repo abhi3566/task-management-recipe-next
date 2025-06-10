@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Search, SlidersHorizontal, X, Filter, ArrowDownAZ, Calendar, ArrowUp, ArrowDown } from "lucide-react";
+import { Search, X, Filter, ArrowDownAZ, Calendar, ArrowUp, ArrowDown } from "lucide-react";
 
 import { TaskPriority, TaskStatus, SortOption, SortDirection } from "@/types/task";
 import { useTaskStore } from "@/store/task-store";
@@ -18,14 +18,6 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Separator } from "@/components/ui/separator";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
 import { Badge } from "@/components/ui/badge";
 
 export function TaskFilter() {
@@ -57,7 +49,7 @@ export function TaskFilter() {
   ) => {
     setSort({ option, direction });
   };
-  
+
   // Count active filters
   const activeFilterCount = [
     filter.status !== undefined, 
@@ -77,7 +69,7 @@ export function TaskFilter() {
     "Done": "bg-green-100 text-green-700 border-green-200 hover:bg-green-200"
   };
   
-  const getSortIcon = (sortOption: string, sortDirection: string) => {
+  const getSortIcon = (sortOption: string) => {
     if (sort.option === sortOption) {
       return sort.direction === "asc" ? <ArrowUp className="h-3 w-3" /> : <ArrowDown className="h-3 w-3" />;
     }
@@ -248,7 +240,7 @@ export function TaskFilter() {
               <DropdownMenuSubTrigger className={sort.option === "createdAt" ? "bg-muted" : ""}>
                 <div className="flex items-center justify-between w-full">
                   <span>Created Date</span>
-                  {getSortIcon("createdAt", sort.direction)}
+                  {getSortIcon("createdAt")}
                 </div>
               </DropdownMenuSubTrigger>
               <DropdownMenuSubContent>
@@ -271,7 +263,7 @@ export function TaskFilter() {
               <DropdownMenuSubTrigger className={sort.option === "dueDate" ? "bg-muted" : ""}>
                 <div className="flex items-center justify-between w-full">
                   <span>Due Date</span>
-                  {getSortIcon("dueDate", sort.direction)}
+                  {getSortIcon("dueDate")}
                 </div>
               </DropdownMenuSubTrigger>
               <DropdownMenuSubContent>
@@ -294,7 +286,7 @@ export function TaskFilter() {
               <DropdownMenuSubTrigger className={sort.option === "priority" ? "bg-muted" : ""}>
                 <div className="flex items-center justify-between w-full">
                   <span>Priority</span>
-                  {getSortIcon("priority", sort.direction)}
+                  {getSortIcon("priority")}
                 </div>
               </DropdownMenuSubTrigger>
               <DropdownMenuSubContent>
