@@ -2,7 +2,9 @@
 
 A modern, responsive Task Management application built with Next.js 15, TypeScript, Tailwind CSS, Shadcn UI, Zustand, and other modern web technologies. This project demonstrates best practices for building a modern React application with a clean, maintainable codebase.
 
-![Task Management Screenshot](public/task-management-screenshot.png)
+![Task Management Screenshot 1](public/task-management-screenshot.png)
+![Task Management Screenshot 2](public/2.png)
+![Task Management Screenshot 3](public/3.png)
 
 ## Live Demo
 
