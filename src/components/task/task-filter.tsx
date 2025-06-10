@@ -305,27 +305,55 @@ export function TaskFilter() {
             </DropdownMenuSub>
           </DropdownMenuContent>
         </DropdownMenu>
-      </div>
-
-      {/* Active Filter Tags */}
+      </div>      {/* Active Filter Tags */}
       {activeFilterCount > 0 && (
         <div className="flex flex-wrap gap-2 mt-1">
           {filter.status && (
             <Badge variant="outline" className={`${statusColor[filter.status]} flex items-center gap-1.5`}>
               Status: {filter.status}
-              <X className="h-3 w-3 cursor-pointer" onClick={() => handleFilterChange("status", "all")} />
+              <Button 
+                variant="ghost" 
+                size="icon" 
+                className="h-4 w-4 p-0 ml-1 hover:bg-transparent" 
+                onClick={(e) => {
+                  e.stopPropagation();
+                  handleFilterChange("status", "all");
+                }}
+              >
+                <X className="h-3 w-3" />
+              </Button>
             </Badge>
           )}
           {filter.priority && (
             <Badge variant="outline" className={`${priorityColor[filter.priority]} flex items-center gap-1.5`}>
               Priority: {filter.priority}
-              <X className="h-3 w-3 cursor-pointer" onClick={() => handleFilterChange("priority", "all")} />
+              <Button 
+                variant="ghost" 
+                size="icon" 
+                className="h-4 w-4 p-0 ml-1 hover:bg-transparent" 
+                onClick={(e) => {
+                  e.stopPropagation();
+                  handleFilterChange("priority", "all");
+                }}
+              >
+                <X className="h-3 w-3" />
+              </Button>
             </Badge>
           )}
           {filter.search && (
             <Badge variant="outline" className="bg-muted flex items-center gap-1.5">
               Search: {filter.search}
-              <X className="h-3 w-3 cursor-pointer" onClick={handleClearSearch} />
+              <Button 
+                variant="ghost" 
+                size="icon" 
+                className="h-4 w-4 p-0 ml-1 hover:bg-transparent" 
+                onClick={(e) => {
+                  e.stopPropagation();
+                  handleClearSearch();
+                }}
+              >
+                <X className="h-3 w-3" />
+              </Button>
             </Badge>
           )}
           {activeFilterCount > 1 && (
