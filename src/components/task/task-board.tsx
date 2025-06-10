@@ -1,6 +1,5 @@
 "use client";
 
-import { useState } from "react";
 import { DragDropContext, DropResult } from "@hello-pangea/dnd";
 import { useTaskStore } from "@/store/task-store";
 import { TaskColumn } from "./task-column";

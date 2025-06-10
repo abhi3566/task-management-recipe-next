@@ -29,9 +29,8 @@ interface TaskActionsProps {
 export function TaskActions({ task, onEdit, onDelete, onChangeStatus }: TaskActionsProps) {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [showDeleteConfirm, setShowDeleteConfirm] = useState(false);
   
-  const handleEdit = async (formData: any) => {
+  const handleEdit = async (formData: Omit<Task, "id" | "createdAt" | "updatedAt">) => {
     setIsSubmitting(true);
     try {
       await onEdit({ ...task, ...formData });

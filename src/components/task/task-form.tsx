@@ -4,7 +4,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { CalendarIcon, Loader2 } from "lucide-react";
 import { format } from "date-fns";
 
-import { Task, TaskPriority, TaskStatus } from "@/types/task";
+import { Task } from "@/types/task";
 import { TaskFormValues, taskSchema } from "@/validators/task-validator";
 
 import { Button } from "@/components/ui/button";

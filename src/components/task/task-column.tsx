@@ -25,7 +25,7 @@ export function TaskColumn({ droppableId, title, status, tasks }: TaskColumnProp
   
   const { addTask, updateTask, deleteTask, changeTaskStatus } = useTaskStore();
   
-  const handleAddTask = async (formData: any) => {
+  const handleAddTask = async (formData: Omit<Task, "id" | "createdAt" | "updatedAt" | "status">) => {
     setIsSubmitting(true);
     try {
       addTask({

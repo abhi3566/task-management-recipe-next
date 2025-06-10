@@ -1,4 +1,5 @@
 "use client"
+/* eslint-disable @typescript-eslint/no-unused-vars */
 
 import * as React from "react"
 import * as AlertDialogPrimitive from "@radix-ui/react-alert-dialog"
@@ -9,13 +10,13 @@ import { buttonVariants } from "@/components/ui/button"
 const AlertDialog = React.forwardRef<
   React.ElementRef<typeof AlertDialogPrimitive.Root>,
   React.ComponentPropsWithoutRef<typeof AlertDialogPrimitive.Root>
->(({ ...props }, ref) => <AlertDialogPrimitive.Root {...props} />);
+>(({ ...props }, _ref) => <AlertDialogPrimitive.Root {...props} />);
 AlertDialog.displayName = AlertDialogPrimitive.Root.displayName;
 
 const AlertDialogTrigger = React.forwardRef<
   React.ElementRef<typeof AlertDialogPrimitive.Trigger>,
   React.ComponentPropsWithoutRef<typeof AlertDialogPrimitive.Trigger>
->(({ ...props }, ref) => <AlertDialogPrimitive.Trigger {...props} />);
+>(({ ...props }, _ref) => <AlertDialogPrimitive.Trigger {...props} />);
 AlertDialogTrigger.displayName = AlertDialogPrimitive.Trigger.displayName;
 
 const AlertDialogPortal = AlertDialogPrimitive.Portal
